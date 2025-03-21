@@ -14,36 +14,36 @@ const CarrouselC = () => {
         <img
           className="w-100"
           style={{ height: "50vh", objectFit: "cover" }}
-          src="https://www.arabiantourpackages.com/assets/images/tours/gallery/img-world-dubai-tickets.jpeg"
+          src="https://i.ytimg.com/vi/crDNzugmuGY/maxresdefault.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>Slide 1</h3>
-          <p>Descripción del primer slide.</p>
+          <h2>ESTRENOS</h2>
+          <p>IT</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="w-100"
           style={{ height: "50vh", objectFit: "cover" }}
-          src="https://images.nhttdubai.com/tours/2636936256.jpg"
+          src="https://encuentra.com/wp-content/uploads/2019/12/Frozen2.encuentra.com_.jpg"
           alt="Second slide"
         />
         <Carousel.Caption>
-          <h3>Slide 2</h3>
-          <p>Descripción del segundo slide.</p>
+          <h2>ESTRENOS</h2>
+          <p>FROZEN</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="w-100"
           style={{ height: "50vh", objectFit: "cover" }}
-          src="https://www.arabiantourpackages.com/assets/images/tours/gallery/img-world-dubai-tickets.jpeg"
+          src="https://scontent.ftuc4-2.fna.fbcdn.net/v/t39.30808-6/475550278_9305740269461757_6230325877676308_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFlzf59KA1yJNt9reHnycKFDrrJUduSL5sOuslR25Ivm-veDyMUzvT-RaD9KLmvIEeqB7GqWeJ6ro7Wo1vdbGEX&_nc_ohc=s8DF9t8Tl-kQ7kNvgHoRZ_q&_nc_oc=Adn3IpM5ykJupNbbKwjlbR-E8Ucso4zYYylRAvkieN7bPs9JezL97Au9O74qLGr7Nskh7xLLb-MK7KcPiXI3nHUx&_nc_zt=23&_nc_ht=scontent.ftuc4-2.fna&_nc_gid=8C0MR_SfTh2sN1sU5t-Gqg&oh=00_AYHfIOh-gHwNeiBs40IoD_YJWxP5ppwCIcDAtCdNfqjtFA&oe=67E2236A"
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h3>Slide 3</h3>
-          <p>Descripción del tercer slide.</p>
+          <h2>ESTRENOS</h2>
+          <p>IMAX</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

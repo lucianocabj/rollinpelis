@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { NavbarC } from './components/navbar/NavbarC';
-import CarrouselC from './components/navbar/carrousel/CarrouselC'; // Sin llaves
+import CarrouselC from './components/navbar/carrousel/CarrouselC'; 
 
 import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
