@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
-import CarrouselC from './components/navbar/carrousel/CarrouselC'
+import CarrouselC from './components/carrousel/CarrouselC.jsx';
 
 
 

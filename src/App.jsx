@@ -6,7 +6,7 @@ import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { UserPage } from './pages/UserPage';
 import { AdminPage } from './pages/AdminPage';
-import {CarrouselC} from './components/carrousel/CarrouselC';
+import CarrouselC from './components/carrousel/CarrouselC';
 function App() {
   return (
     <Router>
