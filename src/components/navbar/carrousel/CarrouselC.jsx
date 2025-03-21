@@ -49,5 +49,15 @@ const CarrouselC = () => {
     </Carousel>
   );
 };
+import { Link } from 'react-router-dom';
+
+const NavbarC = () => {
+  return (
+    <nav>
+      <Link to="/">Inicio</Link>
+      <Link to="/carrousel">Carrusel</Link>
+    </nav>
+  );
+};
 
 export default CarrouselC;
