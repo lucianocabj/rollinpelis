@@ -118,6 +118,7 @@ export const FormC = ({ idPage }) => {
       return;
     }
 
+    usuarioExiste.login = true;
     sessionStorage.setItem("usuarioLogueado", JSON.stringify(usuarioExiste));
 
     if(usuarioExiste.rol === 'usuario'){
@@ -166,7 +167,7 @@ export const FormC = ({ idPage }) => {
 
           {idPage === "registrarse" && (
             <Form.Group
-              className="mb-3 col-12 col-md-8 col-lg-6"
+              className="mb-3 col-12 col-md-8 col-lg-6 mb"
               controlId="inputEmail"
             >
               <Form.Label className="text-light">Correo</Form.Label>
