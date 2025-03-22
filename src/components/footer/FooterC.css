@@ -1,0 +1,25 @@
+
+
+.btn-link {
+    opacity: 0.8; 
+    transition: color 0.5s ease-in-out, opacity 0.3s ease-in-out;
+    text-decoration: none !important;
+    color: #fff;
+}
+
+.btn-link:hover {
+    color: #7e2df9 !important;
+    opacity: 1 !important;
+}
+
+.img-footer {
+    max-height: 240px;
+    width: auto;
+  }
+.color-text{
+    color: #7e2df9;
+}
+
+.bg{
+    background-color: #7e2df9;
+}
