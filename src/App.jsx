@@ -10,7 +10,9 @@ import { FooterC } from './components/footer/FooterC';
 function App() {
   return (
     <Router>
+      <div className="app-container">
       <NavbarC />
+      <div className="content">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/iniciar-sesion" element={<LoginPage />} />
@@ -18,7 +20,9 @@ function App() {
         <Route path="/user" element={<UserPage />} />
         <Route path="/admin" element={<AdminPage />} />
       </Routes>
+      </div>
       <FooterC/>
+      </div>
     </Router>
   );
 }
