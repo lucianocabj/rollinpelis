@@ -4,15 +4,13 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaChevronLeft, FaChevronRight, FaPlay } from "react-icons/fa";
-import { useNavigate } from "react-router-dom"; // Para navegar programáticamente
+import { useNavigate } from "react-router-dom";
 import Favoritos from "../components/favoritos/favoritos";
 import "./List.css";
 
 const List = () => {
-  // Navegación programática
   const navigate = useNavigate();
 
-  // Verificar si el usuario está logueado
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     const userToken = localStorage.getItem("userToken");
@@ -21,7 +19,6 @@ const List = () => {
     }
   }, []);
 
-  // Array base de películas con la propiedad 'favorito'
   const defaultPeliculas = [
     {
       id: 1,
@@ -216,40 +213,33 @@ const List = () => {
     },
   ];
 
-  // Estado para almacenar las películas (se inicializa desde localStorage si existe)
   const [pelis, setPelis] = useState(() => {
     const data = localStorage.getItem("peliculas");
     return data ? JSON.parse(data) : defaultPeliculas;
   });
 
-  // Para mostrar la película favorita en la parte superior
   const [peliculasFavorita, setPeliculaFavorita] = useState(null);
 
-  // Refs para el scroll en cada categoría
   const contenedoresRef = useRef({});
 
-  // Estados para el modal y la película seleccionada
   const [showModal, setShowModal] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-  // Al hacer clic en Reproducir, chequea si está logueado o no
   const handlePlay = (pelicula) => {
     if (isLoggedIn) {
       setSelectedMovie(pelicula);
       setShowModal(true);
     } else {
-      // Si no está logueado, redirige a /iniciar-sesion
       navigate("/iniciar-sesion");
     }
   };
 
-  // Cerrar modal
+
   const handleCloseModal = () => {
     setShowModal(false);
     setSelectedMovie(null);
   };
 
-  // Si localStorage no tiene películas, las guardamos
   useEffect(() => {
     if (pelis.length === 0) {
       setPelis(defaultPeliculas);
@@ -257,7 +247,6 @@ const List = () => {
     }
   }, [pelis, defaultPeliculas]);
 
-  // Asegurarnos de que localStorage tenga 'peliculas' la primera vez
   useEffect(() => {
     if (!localStorage.getItem("peliculas")) {
       localStorage.setItem("peliculas", JSON.stringify(defaultPeliculas));
@@ -273,7 +262,6 @@ const List = () => {
   // Categorías para agrupar las películas
   const categorias = ["Acción", "Comedia", "Terror"];
 
-  // Funciones para desplazarse horizontalmente en el contenedor de películas
   const desplazarIzquierda = (categoria) => {
     const contenedor = contenedoresRef.current[categoria];
     if (contenedor) {
@@ -290,7 +278,6 @@ const List = () => {
 
   return (
     <div className="list-container">
-      {/* Si hay una película favorita, la mostramos en la parte superior */}
       {peliculasFavorita && (
         <div>
           <Favoritos
@@ -300,7 +287,6 @@ const List = () => {
         </div>
       )}
 
-      {/* Renderizado de cada categoría con sus películas */}
       {categorias.map((categoria) => {
         const peliculasFiltradas = pelis.filter((peli) => peli.genero === categoria);
         return (
