@@ -11,6 +11,7 @@ import Favoritos from "./components/favoritos/favoritos";
 import SobreNosotrosPage from "./pages/SobreNosotrosPage";
 import { ContactoPage } from "./pages/ContactoPage";
 import { Peliculas } from "./pages/Peliculas";
+import { CrearPeliculas } from "./pages/peliculas/CrearPeliculas";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/contacto" element={<ContactoPage  />} />
             <Route path="/sobre-nosotros" element={<SobreNosotrosPage />} />
             <Route path='/panel-peliculas' element= {<Peliculas />} />
+            <Route path='/admin/crear-peliculas' element={<CrearPeliculas />} />
           </Routes>
         </div>
         <FooterC />
