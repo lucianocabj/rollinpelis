@@ -270,12 +270,12 @@ const List = () => {
   return (
     <div className="list-container">
       {peliculasFavorita && (
-        <div>
+        <div className="container">
           <Favoritos
             titulo={peliculasFavorita.titulo}
             poster={peliculasFavorita.poster}
           />
-          <Button className="btn-style text-center" onClick={handleClickDes}>
+          <Button className="btn-style btn-v2" onClick={handleClickDes}>
             reproducir
           </Button>
         </div>

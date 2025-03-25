@@ -3,16 +3,13 @@ import "./Favoritos.css";
 
 const Favoritos = ({ titulo, poster }) => {
   return (
-    <Container>
-      <Row>
-        <Col>
-          {/* <col-12 col-md-12 col-lg-12 /> */}
-          <img className="img" src={poster} alt="" />
-          <h5 className="titulo">{titulo}</h5>
-          {/* <button className="btn btn-dark">Reproducir</button> */}
-        </Col>
-      </Row>
-    </Container>
+    <div className="container-xl mt-3">
+      <div className="d-flex flex-column justify-content-center cont">
+        <img className="img" src={poster} alt="" />
+        <h5 className="titulo text-center mt-2">{titulo}</h5>
+        
+      </div>
+    </div>
   );
 };
 

@@ -1,12 +1,9 @@
 .img {
-  max-width: 100%;
-  max-height: 100%;
   width: 250px;
+  margin: 0 auto;
 }
 
 .titulo {
-  -ms-text-align-last: auto;
-  font-family: "Courier New";
   font-size: 20px;
   font-weight: bold;
 }
