@@ -109,9 +109,9 @@ export const TablaC = () => {
             </tr>
           </thead>
           <tbody>
-            {peliculas.map((peli) => (
+            {peliculas.map((peli, index) => (
               <tr key={peli.id}>
-                <td>{peli.id || "Sin ID"}</td>
+                <td>{index + 1 || "Sin ID"}</td>
                 <td>{peli.titulo || "Sin título"}</td>
                 <td>{peli.genero || "Sin categoría"}</td>
                 <td>{peli.descripcion || "Sin descripción"}</td>

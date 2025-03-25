@@ -27,7 +27,7 @@ const List = () => {
       genero: "Acción",
       poster: "https://letraslibres.com/wp-content/uploads/2016/05/letraslibres-madmax.jpg",
       videoUrl: "https://www.youtube.com/embed/hEJnMQG9ev8",
-      destacado: false,
+      destacado: true,
       publicado:true
     },
     {
@@ -37,7 +37,7 @@ const List = () => {
       genero: "Acción",
       poster: "https://m.media-amazon.com/images/I/91A6qQxRFWL._AC_UF1000,1000_QL80_.jpg",
       videoUrl: "https://www.youtube.com/embed/2AUmvWm5ZDQ",
-      destacado: true,
+      destacado: false,
       publicado:true
     },
     {
@@ -47,7 +47,7 @@ const List = () => {
       genero: "Acción",
       poster: "https://image.tmdb.org/t/p/w500/yFihWxQcmqcaBR31QM6Y8gT6aYV.jpg",
       videoUrl: "https://www.youtube.com/embed/2TQ-pOvI6Xo",
-      destacado: true,
+      destacado: false,
       publicado:true
     },
     {
