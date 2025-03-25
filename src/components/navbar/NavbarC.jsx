@@ -60,6 +60,11 @@ export const NavbarC = () => {
                 <NavDropdown.Item href="#">Aventura</NavDropdown.Item>
                 <NavDropdown.Item href="#">Comedia</NavDropdown.Item>
               </NavDropdown>
+              {usuarioLogueado && usuarioLogueado.rol === "usuario" && (
+            <Nav.Link as={Link} to="/contacto">
+              Contacto
+            </Nav.Link>
+          )}
             </Nav>
 
             {usuarioLogueado ? (

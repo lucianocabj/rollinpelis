@@ -9,6 +9,8 @@ import { AdminPage } from "./pages/AdminPage";
 import { FooterC } from "./components/footer/FooterC";
 import Favoritos from "./components/favoritos/favoritos";
 import SobreNosotrosPage from "./pages/SobreNosotrosPage";
+import { ContactoPage } from "./pages/ContactoPage";
+
 
 function App() {
   return (
@@ -16,13 +18,13 @@ function App() {
       <div className="app-container">
         <NavbarC />
         <div className="content">
-          <Favoritos />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/iniciar-sesion" element={<LoginPage />} />
             <Route path="/registrarse" element={<RegisterPage />} />
             <Route path="/user" element={<UserPage />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/contacto" element={<ContactoPage  />} />
             <Route path="/sobre-nosotros" element={<SobreNosotrosPage />} />
           </Routes>
         </div>
