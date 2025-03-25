@@ -1,26 +1,31 @@
 import React, { useRef, useEffect, useState } from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaChevronLeft, FaChevronRight, FaPlay } from "react-icons/fa";
-import "./List.css";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import Favoritos from "../components/favoritos/favoritos";
-import { Navigate } from "react-router";
-import "../components/form/FormC.css";
+import Cards from "../components/cards/Cards";
+import "./List.css";
+
 const List = () => {
-  const [pelis, setPelis] = useState(() => {
-    const data = localStorage.getItem("peliculas");
-    return data ? JSON.parse(data) : [];
-  });
-  const peliculas = [
+  const navigate = useNavigate();
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const userToken = localStorage.getItem("userToken");
+    if (userToken) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const defaultPeliculas = [
     {
       id: 1,
       titulo: "Mad Max: Fury Road",
       anio: 2015,
       genero: "Acción",
-      poster:
-        "https://letraslibres.com/wp-content/uploads/2016/05/letraslibres-madmax.jpg",
+      poster: "https://letraslibres.com/wp-content/uploads/2016/05/letraslibres-madmax.jpg",
       videoUrl: "https://www.youtube.com/embed/hEJnMQG9ev8",
       favorito: false,
     },
@@ -29,8 +34,7 @@ const List = () => {
       titulo: "John Wick",
       anio: 2014,
       genero: "Acción",
-      poster:
-        "https://m.media-amazon.com/images/I/91A6qQxRFWL._AC_UF1000,1000_QL80_.jpg",
+      poster: "https://m.media-amazon.com/images/I/91A6qQxRFWL._AC_UF1000,1000_QL80_.jpg",
       videoUrl: "https://www.youtube.com/embed/2AUmvWm5ZDQ",
       favorito: true,
     },
@@ -57,8 +61,7 @@ const List = () => {
       titulo: "Gladiator",
       anio: 2000,
       genero: "Acción",
-      poster:
-        "https://cdn.sincroguia.tv/uploads/programs/g/l/a/gladiator-el-gladiador-poster-152_SPA-87_V.jpg",
+      poster: "https://cdn.sincroguia.tv/uploads/programs/g/l/a/gladiator-el-gladiador-poster-152_SPA-87_V.jpg",
       videoUrl: "https://www.youtube.com/embed/owK1qxDselE",
       favorito: false,
     },
@@ -94,8 +97,7 @@ const List = () => {
       titulo: "The Hangover",
       anio: 2009,
       genero: "Comedia",
-      poster:
-        "https://m.media-amazon.com/images/I/91pvafw44bL._AC_UF1000,1000_QL80_.jpg",
+      poster: "https://m.media-amazon.com/images/I/91pvafw44bL._AC_UF1000,1000_QL80_.jpg",
       videoUrl: "https://www.youtube.com/embed/tcdUhdOlz9M",
       favorito: false,
     },
@@ -104,8 +106,7 @@ const List = () => {
       titulo: "Dumb and Dumber",
       anio: 1994,
       genero: "Comedia",
-      poster:
-        "https://i.scdn.co/image/ab67616d0000b273a6c533a7db4fa2a4c013db37",
+      poster: "https://i.scdn.co/image/ab67616d0000b273a6c533a7db4fa2a4c013db37",
       videoUrl: "https://www.youtube.com/embed/l13yPhimE3o",
       favorito: false,
     },
@@ -114,8 +115,7 @@ const List = () => {
       titulo: "Bridesmaids",
       anio: 2011,
       genero: "Comedia",
-      poster:
-        "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p8414185_p_v8_ae.jpg",
+      poster: "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p8414185_p_v8_ae.jpg",
       videoUrl: "https://www.youtube.com/embed/FNppLrmdyug",
       favorito: false,
     },
@@ -124,8 +124,7 @@ const List = () => {
       titulo: "Step Brothers",
       anio: 2008,
       genero: "Comedia",
-      poster:
-        "https://musicart.xboxlive.com/7/7dca1100-0000-0000-0000-000000000002/504/image.jpg",
+      poster: "https://musicart.xboxlive.com/7/7dca1100-0000-0000-0000-000000000002/504/image.jpg",
       videoUrl: "https://www.youtube.com/embed/ANjenc3W1_Q",
       favorito: false,
     },
@@ -190,8 +189,7 @@ const List = () => {
       titulo: "The Exorcist",
       anio: 1973,
       genero: "Terror",
-      poster:
-        "https://m.media-amazon.com/images/I/81uPSRxNpZL._AC_UF1000,1000_QL80_.jpg",
+      poster: "https://m.media-amazon.com/images/I/81uPSRxNpZL._AC_UF1000,1000_QL80_.jpg",
       videoUrl: "https://www.youtube.com/embed/YDGw1MTEe9k",
       favorito: false,
     },
@@ -209,23 +207,30 @@ const List = () => {
       titulo: "The Babadook",
       anio: 2014,
       genero: "Terror",
-      poster:
-        "https://m.media-amazon.com/images/I/5190k6YBGPL._AC_UF1000,1000_QL80_.jpg",
+      poster: "https://m.media-amazon.com/images/I/5190k6YBGPL._AC_UF1000,1000_QL80_.jpg",
       videoUrl: "https://www.youtube.com/embed/k5WQZzDRVtw",
       favorito: false,
     },
   ];
-  const categorias = ["Acción", "Comedia", "Terror"];
-  const contenedoresRef = useRef({});
 
-  const [peliculasFavorita, setPeliculaFavorita] = useState(null);
+  const [pelis, setPelis] = useState(() => {
+    const data = localStorage.getItem("peliculas");
+    return data ? JSON.parse(data) : defaultPeliculas;
+  });
+
+  const [peliculaFavorita, setPeliculaFavorita] = useState(null);
+  const contenedoresRef = useRef({});
 
   const [showModal, setShowModal] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   const handlePlay = (pelicula) => {
-    setSelectedMovie(pelicula);
-    setShowModal(true);
+    if (isLoggedIn) {
+      setSelectedMovie(pelicula);
+      setShowModal(true);
+    } else {
+      navigate("/iniciar-sesion");
+    }
   };
 
   const handleCloseModal = () => {
@@ -235,21 +240,23 @@ const List = () => {
 
   useEffect(() => {
     if (pelis.length === 0) {
-      setPelis(peliculas);
-      localStorage.setItem("peliculas", JSON.stringify(peliculas));
+      setPelis(defaultPeliculas);
+      localStorage.setItem("peliculas", JSON.stringify(defaultPeliculas));
     }
-  }, []);
+  }, [pelis, defaultPeliculas]);
 
   useEffect(() => {
     if (!localStorage.getItem("peliculas")) {
-      localStorage.setItem("peliculas", JSON.stringify(peliculas));
+      localStorage.setItem("peliculas", JSON.stringify(defaultPeliculas));
     }
-  }, []);
+  }, [defaultPeliculas]);
 
   useEffect(() => {
     const peliFavorita = pelis.find((peli) => peli.favorito);
-    setPeliculaFavorita(peliFavorita);
+    setPeliculaFavorita(peliFavorita || null);
   }, [pelis]);
+
+  const categorias = ["Acción", "Comedia", "Terror"];
 
   const desplazarIzquierda = (categoria) => {
     const contenedor = contenedoresRef.current[categoria];
@@ -264,25 +271,20 @@ const List = () => {
       contenedor.scrollBy({ left: 300, behavior: "smooth" });
     }
   };
-  const handleClickDes = () => {
-    Navigate("/#");
-  };
+
   return (
     <div className="list-container">
-      {peliculasFavorita && (
-        <div className="container">
+      {peliculaFavorita && (
+        <div>
           <Favoritos
-            titulo={peliculasFavorita.titulo}
-            poster={peliculasFavorita.poster}
+            titulo={peliculaFavorita.titulo}
+            poster={peliculaFavorita.poster}
           />
-          <Button className="btn-style btn-v2" onClick={handleClickDes}>
-            reproducir
-          </Button>
         </div>
       )}
 
       {categorias.map((categoria) => {
-        const peliculasFiltradas = peliculas.filter(
+        const peliculasFiltradas = pelis.filter(
           (peli) => peli.genero === categoria
         );
         return (
@@ -301,25 +303,11 @@ const List = () => {
               className="movies-container"
             >
               {peliculasFiltradas.map((peli) => (
-                <div key={peli.id} className="movie-card-container">
-                  <Card className="h-100 shadow-sm">
-                    <Card.Img
-                      variant="top"
-                      src={peli.poster}
-                      alt={peli.titulo}
-                      className="card-img"
-                    />
-                    <Card.Body>
-                      <Card.Title>{peli.titulo}</Card.Title>
-                      <Card.Text className="text-muted">
-                        Año: {peli.anio}
-                      </Card.Text>
-                      <Button variant="dark" onClick={() => handlePlay(peli)}>
-                        <FaPlay /> Reproducir
-                      </Button>
-                    </Card.Body>
-                  </Card>
-                </div>
+                <Cards 
+                  key={peli.id} 
+                  pelicula={peli} 
+                  handlePlay={handlePlay} 
+                />
               ))}
             </div>
 
