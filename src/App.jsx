@@ -7,6 +7,7 @@ import { RegisterPage } from "./pages/RegisterPage";
 import { UserPage } from "./pages/UserPage";
 import { AdminPage } from "./pages/AdminPage";
 import { FooterC } from "./components/footer/FooterC";
+import Favoritos from "./components/favoritos/favoritos";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <div className="app-container">
         <NavbarC />
         <div className="content">
+          <Favoritos />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/iniciar-sesion" element={<LoginPage />} />
