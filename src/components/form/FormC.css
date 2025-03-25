@@ -1,12 +1,12 @@
 .btn-style {
-    border: 2px solid #fff !important;
-    color: #fff !important;
-    background-color: transparent !important;
+    border: 2px solid #fff ;
+    color: #fff ;
+    background-color: transparent ;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .btn-style:hover {
-    background-color: #fff !important;
+    background-color: #fff ;
     color: #000 !important;
-    border: 2px solid #fff !important;
+    border: 2px solid #fff ;
 }
