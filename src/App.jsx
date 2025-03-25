@@ -7,6 +7,7 @@ import { RegisterPage } from "./pages/RegisterPage";
 import { UserPage } from "./pages/UserPage";
 import { AdminPage } from "./pages/AdminPage";
 import { FooterC } from "./components/footer/FooterC";
+import { ContactoPage } from "./pages/ContactoPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/registrarse" element={<RegisterPage />} />
             <Route path="/user" element={<UserPage />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path='/contacto' element= {<ContactoPage/>}/>
 
           </Routes>
         </div>
