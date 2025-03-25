@@ -20,6 +20,7 @@ function App() {
             <Route path="/registrarse" element={<RegisterPage />} />
             <Route path="/user" element={<UserPage />} />
             <Route path="/admin" element={<AdminPage />} />
+
           </Routes>
         </div>
         <FooterC />

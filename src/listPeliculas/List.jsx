@@ -4,9 +4,18 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaChevronLeft, FaChevronRight, FaPlay } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom'; // Para navegar programáticamente
 import './List.css';
 
 const List = () => {
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const userToken = localStorage.getItem('userToken');
+    if (userToken) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const peliculas = [
     { id: 1, titulo: "Mad Max: Fury Road", anio: 2015, genero: "Acción", poster: "https://letraslibres.com/wp-content/uploads/2016/05/letraslibres-madmax.jpg", videoUrl: "https://www.youtube.com/embed/hEJnMQG9ev8" },
@@ -33,14 +42,21 @@ const List = () => {
   ];
 
   const categorias = ["Acción", "Comedia", "Terror"];
+
   const contenedoresRef = useRef({});
 
   const [showModal, setShowModal] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   const handlePlay = (pelicula) => {
-    setSelectedMovie(pelicula);
-    setShowModal(true);
+    if (isLoggedIn) {
+      
+      setSelectedMovie(pelicula);
+      setShowModal(true);
+    } else {
+      
+      navigate('/iniciar-sesion');
+    }
   };
 
   const handleCloseModal = () => {
@@ -52,7 +68,7 @@ const List = () => {
     if (!localStorage.getItem('peliculas')) {
       localStorage.setItem('peliculas', JSON.stringify(peliculas));
     }
-  }, []);
+  }, [peliculas]);
 
   const desplazarIzquierda = (categoria) => {
     const contenedor = contenedoresRef.current[categoria];
