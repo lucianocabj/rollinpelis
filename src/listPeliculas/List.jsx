@@ -6,7 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FaChevronLeft, FaChevronRight, FaPlay } from "react-icons/fa";
 import "./List.css";
 import Favoritos from "../components/favoritos/favoritos";
-
+import { Navigate } from "react-router";
+import "../components/form/FormC.css";
 const List = () => {
   const [pelis, setPelis] = useState(() => {
     const data = localStorage.getItem("peliculas");
@@ -263,7 +264,9 @@ const List = () => {
       contenedor.scrollBy({ left: 300, behavior: "smooth" });
     }
   };
-
+  const handleClickDes = () => {
+    Navigate("/#");
+  };
   return (
     <div className="list-container">
       {peliculasFavorita && (
@@ -272,6 +275,9 @@ const List = () => {
             titulo={peliculasFavorita.titulo}
             poster={peliculasFavorita.poster}
           />
+          <Button className="btn-style text-center" onClick={handleClickDes}>
+            reproducir
+          </Button>
         </div>
       )}
 
