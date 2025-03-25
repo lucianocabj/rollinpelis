@@ -1,11 +1,13 @@
 import React from "react";
 
-const SobreNosotrospage = () => {
+import SobreNosotrosC from "../components/sobre-nosotros/SobreNosotrosC";
+
+const SobreNosotrosPage = () => {
   return (
     <>
-      <SobreNosotrosPage />
+      <SobreNosotrosC />
     </>
   );
 };
 
-export default SobreNosotrospage;
+export default SobreNosotrosPage;

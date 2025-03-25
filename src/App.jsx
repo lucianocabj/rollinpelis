@@ -8,6 +8,7 @@ import { UserPage } from "./pages/UserPage";
 import { AdminPage } from "./pages/AdminPage";
 import { FooterC } from "./components/footer/FooterC";
 import Favoritos from "./components/favoritos/favoritos";
+import SobreNosotrosPage from "./pages/SobreNosotrosPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/registrarse" element={<RegisterPage />} />
             <Route path="/user" element={<UserPage />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/sobre-nosotros" element={<SobreNosotrosPage />} />
           </Routes>
         </div>
         <FooterC />
