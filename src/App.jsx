@@ -10,6 +10,7 @@ import { FooterC } from "./components/footer/FooterC";
 import Favoritos from "./components/favoritos/favoritos";
 import SobreNosotrosPage from "./pages/SobreNosotrosPage";
 import { ContactoPage } from "./pages/ContactoPage";
+import { Peliculas } from "./pages/Peliculas";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/contacto" element={<ContactoPage  />} />
             <Route path="/sobre-nosotros" element={<SobreNosotrosPage />} />
+            <Route path='/panel-peliculas' element= {<Peliculas />} />
           </Routes>
         </div>
         <FooterC />
