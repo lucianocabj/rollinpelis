@@ -1,9 +1,70 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import Swal from "sweetalert2";
+import { useLocation } from "react-router";
+import Swal from "sweetalert2"
+
 
 export const CrearPeliculas = () => {
   const peliculasLS = JSON.parse(localStorage.getItem("peliculas")) || [];
+
+  const location = useLocation();
+  const idParams = new URLSearchParams(location.search).get("id");
+
+  const [peliculaEditar, setPeliculEditar] = useState({
+    titulo: "",
+    descripcion: "",
+    genero: "",
+    poster: null,
+    anio: "",
+  })
+
+  const obtenerPeliculaEditar = ()=>{
+    const peliculasLS = JSON.parse(localStorage.getItem('peliculas'))
+    const peliculaAEditar = peliculasLS.find((pelicula)=> pelicula.id === Number(idParams)) 
+
+    setPeliculEditar(peliculaAEditar)
+  }
+
+  const editarPelicula = (e) => {
+    e.preventDefault();
+    const peliculasLS = JSON.parse(localStorage.getItem('peliculas'));
+    const peliculaAEditar = peliculasLS.find((pelicula) => pelicula.id === Number(idParams));
+    const peliculaIndex = peliculasLS.findIndex((pelicula) => pelicula.id === Number(idParams));
+  
+    const peliculaActualizada = {
+      ...peliculaAEditar,
+      titulo: peliculaEditar.titulo,
+      genero: peliculaEditar.genero,
+      descripcion: peliculaEditar.descripcion,
+      anio: peliculaEditar.anio,
+    };
+    
+    peliculasLS[peliculaIndex] = peliculaActualizada;
+  
+    localStorage.setItem("peliculas", JSON.stringify(peliculasLS));
+  
+  
+    setPeliculEditar(peliculaActualizada);
+  
+  
+    Swal.fire({
+      title: "¡Película editada con éxito!",
+      icon: "success",
+      confirmButtonText: "OK",
+    });
+  };
+
+
+  useEffect(()=>{
+    if(idParams){
+      obtenerPeliculaEditar()
+    }
+  },[])
+
+
+  const handleChangeFormEdit = (e)=>{
+      setPeliculEditar({...peliculaEditar, [e.target.name]: e.target.value})
+  }
 
   const [formulario, setFormulario] = useState({
     titulo: "",
@@ -50,7 +111,7 @@ export const CrearPeliculas = () => {
       formulario.anio >= 0 
     ) {
       const nuevaPelicula = {
-        id: peliculasLS[peliculasLS.length - 1]?.id + 1 || 1,
+        id: peliculasLS.length > 0 ? peliculasLS[peliculasLS.length - 1].id + 1 : 1,
         titulo: formulario.titulo,
         descripcion: formulario.descripcion,
         genero: formulario.genero,
@@ -80,18 +141,22 @@ export const CrearPeliculas = () => {
   };
 
 
+
   return (
     <div className="container">
-      <h2 className="mt-4">Crear Película</h2>
+      {
+        idParams ? <h2 className="mt-4">Editar Película</h2> : <h2 className="mt-4">Crear Pelicula</h2>
+      }
       <hr />
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={idParams ? editarPelicula : handleSubmit}>
         <Form.Group className="mb-3 w-50" controlId="formTitulo">
           <Form.Label>Título de la película</Form.Label>
           <Form.Control
             type="text"
             name="titulo"
-            value={formulario.titulo}
-            onChange={handleChange}
+            value={idParams && peliculaEditar.titulo}
+            // onChange={handleChange}
+            onChange={(e) => idParams ? handleChangeFormEdit(e) : handleChange}
             isInvalid={errores.titulo}
           />
           {errores.titulo && (
@@ -107,8 +172,8 @@ export const CrearPeliculas = () => {
             as="textarea"
             rows={3}
             name="descripcion"
-            value={formulario.descripcion}
-            onChange={handleChange}
+            value={idParams && peliculaEditar.descripcion}
+            onChange={(e) => idParams ? handleChangeFormEdit(e) : handleChange}
             isInvalid={errores.descripcion}
           />
           {errores.descripcion && (
@@ -122,8 +187,9 @@ export const CrearPeliculas = () => {
           <Form.Label>Genero</Form.Label>
           <Form.Select
             name="genero"
-            value={formulario.genero}
-            onChange={handleChange}
+            value={idParams && peliculaEditar.genero}
+
+            onChange={(e) => idParams ? handleChangeFormEdit(e) : handleChange}
           >
             <option value="Terror">Terror</option>
             <option value="Comedia">Comedia</option>
@@ -136,8 +202,8 @@ export const CrearPeliculas = () => {
           <Form.Control
             type="number"
             name="anio"
-            value={formulario.anio}
-            onChange={handleChange}
+            value={idParams && peliculaEditar.anio}
+            onChange={(e) => idParams ? handleChangeFormEdit(e) : handleChange}
             isInvalid={errores.anio}
           />
           {errores.anio && (
@@ -166,7 +232,7 @@ export const CrearPeliculas = () => {
         </Form.Group>
 
         <Button variant="primary" type="submit">
-          Crear Película
+          { idParams ? 'Editar Pelicula': 'Crear Película'}
         </Button>
       </Form>
     </div>
